@@ -56,6 +56,9 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     go \
     nodejs \
     npm \
+    pulseaudio \
+    pulseaudio-alsa \
+    pulsemixer \
     noto-fonts \
     noto-fonts-emoji \
     noto-fonts-extra \
