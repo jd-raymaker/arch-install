@@ -99,11 +99,9 @@ echo "Downloading dotfiles"
 runuser -l $username -c 'curl https://gist.githubusercontent.com/jd-raymaker/d9e0ebb53f75a82b74ab99f044635f34/raw/5097b9c1260c4f6422b9f6ada862fa32bfe712d2/install-dotfiles | sh'
 
 # Download and install Yay
-runuser -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay'
-su -l $username -c 'cd $HOME/aur/yay && makepkg -si' -P
-# Download and install polybar
-runuser -l $username -c 'got clone https://aur.archlinux.org/polybar.git $HOME/aur/polybar'
-su -l $username -c 'cd $HOME/aur/polybar && makepkg -si' -P
+su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
+# Download and install polybar using yay
+su -P -l $username -c 'yay -S polybar'
 
-# Enable password in doas config again
+# Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
