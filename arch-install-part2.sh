@@ -54,6 +54,12 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     nitrogen \
     ranger \
     go \
+    nodejs \
+    npm \
+    noto-fonts \
+    noto-fonts-emoji \
+    noto-fonts-extra \
+    ttf-hack \
     xorg-xclipboard \
     rxvt-unicode \
     lxsession \
@@ -100,8 +106,6 @@ runuser -l $username -c 'curl https://gist.githubusercontent.com/jd-raymaker/d9e
 
 # Download and install Yay
 su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
-# Download and install polybar using yay
-su -P -l $username -c 'yay -S polybar'
 
 # Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
