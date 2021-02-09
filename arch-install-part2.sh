@@ -116,5 +116,8 @@ su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay
 # Autoinstall packages from AUR
 su -P -l $username -c 'yay --noconfirm -S polybar brave-bin'
 
+# Persist no keyboard layout
+localectl set-x11-keymap no pc104
+
 # Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
