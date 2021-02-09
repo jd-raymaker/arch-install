@@ -46,6 +46,8 @@ echo "permit nopass $username" > /etc/doas.conf
 echo "Install all the things!"
 pacman -Syu --noconfirm && pacman -S --noconfirm \
     git \
+    htop \
+    neofetch \
     xorg-xrandr \
     scrot \
     rofi \
@@ -63,6 +65,7 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     noto-fonts-emoji \
     noto-fonts-extra \
     ttf-hack \
+    ttf-font-awesome \
     xorg-xclipboard \
     rxvt-unicode \
     lxsession \
@@ -109,6 +112,9 @@ runuser -l $username -c 'curl https://gist.githubusercontent.com/jd-raymaker/d9e
 
 # Download and install Yay
 su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
+
+# Autoinstall packages from AUR
+su -P -l $username -c 'yay --noconfirm -S polybar brave-bin'
 
 # Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
