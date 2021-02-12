@@ -2,7 +2,7 @@
 
 echo "Remember to create partitions with fdisk or cfdisk. Format and mount them before you run this script!"
 echo "Mount Main partition to /mnt"
-echo "Mount EFI partition to /mnt/efi"
+echo "Mount EFI partition to /mnt/boot/efi"
 read -n 1 -s -r -p "Press any key to continue... (Ctrl+c Cancel)"
 
 # Set locale for archiso
@@ -27,7 +27,7 @@ curl -o /etc/pacman.d/mirrorlist 'https://gist.githubusercontent.com/jd-raymaker
 # Install the base packages
 pacman -Syy
 echo "Installing system.."
-pacstrap /mnt base base-devel linux linux-headers linux-firmware networkmanager dhcpcd xorg bash-completion opendoas
+pacstrap /mnt base base-devel linux linux-headers linux-firmware networkmanager xorg bash-completion opendoas
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 cp arch-install-part2.sh /mnt/arch-install-part2.sh
 

@@ -77,28 +77,24 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     neovim \
     firefox \
     intel-ucode \
-    amd-ucode \
     grub \
     efibootmgr \
     os-prober \
-    xf86-video-fbdev
+    nvidia \
+    nvidia-settings \
+    nvidia-utils
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
 # doas takes over. Make symbolic link to replace sudo
 ln -s /bin/doas /bin/sudo
 
-mkinitcpio -P
-
 echo "Enabling services.."
-systemctl enable dhcpcd.service
+systemctl enable NetworkManager
 systemctl enable lightdm.service
 
 # Install and setup GRUB
-
-# esp is either under /efi or /boot
-[ -d "/efi" ] && esp=/efi || esp=/boot
-grub-install --target=x86_64-efi --efi-directory=$esp --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 
 # Check for other OS
 os-prober
