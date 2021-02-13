@@ -87,7 +87,8 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     ttf-hanazono \
     ttf-hannom \
     ttf-baekmuk \
-    discord
+    discord \
+    w3m
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
