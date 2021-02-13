@@ -114,7 +114,7 @@ echo "Downloading dotfiles"
 runuser -l $username -c 'curl https://gist.githubusercontent.com/jd-raymaker/d9e0ebb53f75a82b74ab99f044635f34/raw/5097b9c1260c4f6422b9f6ada862fa32bfe712d2/install-dotfiles | sh'
 
 # Download and install Yay
-su -P -l $username -c 'cd $HOME/aur/yay && makepkg -si'
+su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
 
 # Autoinstall packages from AUR
 su -P -l $username -c 'yay --noconfirm -S polybar brave-bin'
