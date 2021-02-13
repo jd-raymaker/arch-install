@@ -88,7 +88,8 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     ttf-hannom \
     ttf-baekmuk \
     discord \
-    w3m
+    w3m \
+    openssh
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
