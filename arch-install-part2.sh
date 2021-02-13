@@ -89,7 +89,9 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     ttf-baekmuk \
     discord \
     w3m \
-    openssh
+    openssh \
+    cifs-utils \
+    mpv
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
