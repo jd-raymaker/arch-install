@@ -82,7 +82,12 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     os-prober \
     nvidia \
     nvidia-settings \
-    nvidia-utils
+    nvidia-utils \
+    playerctl \
+    ttf-hanazono \
+    ttf-hannom \
+    ttf-baekmuk \
+    discord
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
@@ -91,7 +96,7 @@ ln -s /bin/doas /bin/sudo
 
 echo "Enabling services.."
 systemctl enable NetworkManager
-systemctl enable lightdm.service
+systemctl enable lightdm
 
 # Install and setup GRUB
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
@@ -107,13 +112,10 @@ echo "Downloading dotfiles"
 runuser -l $username -c 'curl https://gist.githubusercontent.com/jd-raymaker/d9e0ebb53f75a82b74ab99f044635f34/raw/5097b9c1260c4f6422b9f6ada862fa32bfe712d2/install-dotfiles | sh'
 
 # Download and install Yay
-su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
+su -P -l $username -c 'cd $HOME/aur/yay && makepkg -si'
 
 # Autoinstall packages from AUR
 su -P -l $username -c 'yay --noconfirm -S polybar brave-bin'
-
-# Persist no keyboard layout
-localectl set-x11-keymap no pc104
 
 # Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
