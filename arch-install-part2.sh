@@ -91,7 +91,10 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     w3m \
     openssh \
     cifs-utils \
-    mpv
+    mpv \
+    udisks2 \
+    udiskie \
+    imagemagick
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
