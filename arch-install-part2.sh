@@ -94,7 +94,12 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     mpv \
     udisks2 \
     udiskie \
-    imagemagick
+    imagemagick \
+    gvfs \
+    gvfs-smb \
+    ffmpegthumbnailer \
+    tumbler \
+    net-tools
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
