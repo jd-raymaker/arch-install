@@ -99,6 +99,7 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     gvfs-smb \
     ffmpegthumbnailer \
     tumbler \
+    mupdf \
     net-tools
 
 # Remove that sudo package
