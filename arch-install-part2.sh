@@ -45,62 +45,62 @@ echo "permit nopass $username" > /etc/doas.conf
 # Install all the things!
 echo "Install all the things!"
 pacman -Syu --noconfirm && pacman -S --noconfirm \
-    git \
-    htop \
-    neofetch \
-    xorg-xrandr \
-    scrot \
-    rofi \
-    rofi-calc \
+    cifs-utils \
+    discord \
     dunst \
-    nitrogen \
-    ranger \
+    efibootmgr \
+    ffmpegthumbnailer \
+    firefox \
+    git \
     go \
+    grub \
+    gvfs \
+    gvfs-smb \
+    htop \
+    i3-gaps \
+    imagemagick \
+    intel-ucode \
+    lightdm \
+    lightdm-gtk-greeter \
+    lxsession \
+    mpv \
+    mupdf \
+    neofetch \
+    neovim \
+    net-tools \
+    nitrogen \
     nodejs \
-    npm \
-    pulseaudio \
-    pulseaudio-alsa \
-    pulsemixer \
     noto-fonts \
     noto-fonts-emoji \
     noto-fonts-extra \
-    ttf-hack \
-    ttf-font-awesome \
-    xorg-xclipboard \
-    rxvt-unicode \
-    lxsession \
-    polkit \
-    i3-gaps \
-    lightdm \
-    lightdm-gtk-greeter \
-    xterm \
-    neovim \
-    firefox \
-    intel-ucode \
-    grub \
-    efibootmgr \
-    os-prober \
+    npm \
     nvidia \
     nvidia-settings \
     nvidia-utils \
+    openssh \
+    os-prober \
     playerctl \
+    polkit \
+    pulseaudio \
+    pulseaudio-alsa \
+    pulsemixer \
+    ranger \
+    rofi \
+    rofi-calc \
+    rxvt-unicode \
+    scrot \
+    ttf-baekmuk \
+    ttf-font-awesome \
+    ttf-hack \
     ttf-hanazono \
     ttf-hannom \
-    ttf-baekmuk \
-    discord \
-    w3m \
-    openssh \
-    cifs-utils \
-    mpv \
-    udisks2 \
-    udiskie \
-    imagemagick \
-    gvfs \
-    gvfs-smb \
-    ffmpegthumbnailer \
     tumbler \
-    mupdf \
-    net-tools
+    udiskie \
+    udisks2 \
+    w3m \
+    xorg-xclipboard \
+    xorg-xrandr \
+    xterm
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
