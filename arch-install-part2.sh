@@ -45,6 +45,9 @@ echo "permit nopass $username" > /etc/doas.conf
 # Install all the things!
 echo "Install all the things!"
 pacman -Syu --noconfirm && pacman -S --noconfirm \
+    alsa-lib \
+    alsa-oss \
+    alsa-plugins \
     cifs-utils \
     discord \
     dunst \
@@ -60,6 +63,7 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     i3-gaps \
     imagemagick \
     intel-ucode \
+    libpulse \
     lightdm \
     lightdm-gtk-greeter \
     lxsession \
@@ -78,6 +82,7 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     nvidia-settings \
     nvidia-utils \
     openssh \
+    openal \
     os-prober \
     playerctl \
     polkit \
