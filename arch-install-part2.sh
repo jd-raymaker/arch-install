@@ -89,6 +89,8 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     pulseaudio \
     pulseaudio-alsa \
     pulsemixer \
+    python \
+    python-pip \
     ranger \
     rofi \
     rofi-calc \
