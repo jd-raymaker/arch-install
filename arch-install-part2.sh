@@ -49,18 +49,19 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     alsa-oss \
     alsa-plugins \
     cifs-utils \
+    conky \
     discord \
     dunst \
     efibootmgr \
     ffmpegthumbnailer \
     firefox \
+    flameshot \
     git \
     go \
     grub \
     gvfs \
     gvfs-smb \
     htop \
-    i3-gaps \
     imagemagick \
     intel-ucode \
     libpulse \
@@ -101,10 +102,12 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     ttf-hack \
     ttf-hanazono \
     ttf-hannom \
+    ttf-roboto-mono-nerd \
     tumbler \
     udiskie \
     udisks2 \
     w3m \
+    xcompmgr \
     xorg-xclipboard \
     xorg-xrandr \
     xterm
@@ -134,7 +137,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
 
 # Autoinstall packages from AUR
-su -P -l $username -c 'yay --noconfirm -S polybar brave-bin'
+su -P -l $username -c 'yay --noconfirm -S brave-bin'
+
+# Download and install suckless dwm
+su -P -l $username -c 'git clone https://github.com/jd-raymaker/dwm.git $HOME/src/dwm && cd $HOME/src/dwm && doas make clean install && doas cp dwm.desktop /usr/share/xsessions/.'
 
 # Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
