@@ -82,6 +82,7 @@ pacman -Syu --noconfirm && pacman -S --noconfirm \
     nvidia \
     nvidia-settings \
     nvidia-utils \
+    numlockx \
     openssh \
     openal \
     os-prober \
