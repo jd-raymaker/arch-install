@@ -66,15 +66,12 @@ pacman -S --noconfirm \
     imagemagick \
     intel-ucode \
     libpulse \
-    lightdm \
-    lightdm-gtk-greeter \
-    lxsession \
+    kitty \
     mpv \
     mupdf \
     neofetch \
     neovim \
     net-tools \
-    nitrogen \
     nodejs \
     noto-fonts \
     noto-fonts-emoji \
@@ -85,6 +82,7 @@ pacman -S --noconfirm \
     openal \
     os-prober \
     playerctl \
+    plasma \
     polkit \
     pulseaudio \
     pulseaudio-alsa \
@@ -96,6 +94,9 @@ pacman -S --noconfirm \
     rofi-calc \
     rxvt-unicode \
     scrot \
+    sddm \
+    sddm-kcm \
+    qt5-declarative \
     ttf-baekmuk \
     ttf-font-awesome \
     ttf-hack \
@@ -103,13 +104,13 @@ pacman -S --noconfirm \
     ttf-hannom \
     ttf-roboto-mono-nerd \
     tumbler \
-    udiskie \
-    udisks2 \
     w3m \
     xcompmgr \
     xorg-xclipboard \
     xorg-xrandr \
-    xterm
+    xorg-xwayland \
+    xterm \
+    zsh
 
 # Remove that sudo package
 pacman -R sudo --noconfirm
@@ -118,7 +119,7 @@ ln -s /bin/doas /bin/sudo
 
 echo "Enabling services.."
 systemctl enable NetworkManager
-systemctl enable lightdm
+systemctl enable sddm.service
 
 # Install and setup GRUB
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
@@ -137,9 +138,6 @@ su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay
 
 # Autoinstall packages from AUR
 su -P -l $username -c 'yay --noconfirm -S brave-bin'
-
-# Download and install suckless dwm
-su -P -l $username -c 'git clone https://github.com/jd-raymaker/dwm.git $HOME/src/dwm && cd $HOME/src/dwm && doas make clean install && doas cp dwm.desktop /usr/share/xsessions/.'
 
 # Enable password in doas config
 echo "permit persist $username" > /etc/doas.conf
