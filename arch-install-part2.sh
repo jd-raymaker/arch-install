@@ -44,7 +44,8 @@ echo "permit nopass $username" > /etc/doas.conf
 
 # Install all the things!
 echo "Install all the things!"
-pacman -Syu --noconfirm && pacman -S --noconfirm \
+pacman -Syy --noconfirm
+pacman -S --noconfirm \
     alsa-lib \
     alsa-oss \
     alsa-plugins \
