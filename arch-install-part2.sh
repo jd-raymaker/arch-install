@@ -37,10 +37,7 @@ echo "Make password for $username"
 passwd $username
 
 # Add the user to sudoers
-# echo "$username ALL=(ALL:ALL) ALL" > /etc/sudoers.d/custom
-# Who needs sudo? Lets use doas
-# don't use password during setup. We enable password again when finished
-echo "permit nopass $username" > /etc/doas.conf
+echo "$username ALL=(ALL:ALL) ALL" > /etc/sudoers.d/custom
 
 # Install all the things!
 echo "Install all the things!"
@@ -112,11 +109,6 @@ pacman -S --noconfirm \
     xterm \
     zsh
 
-# Remove that sudo package
-pacman -R sudo --noconfirm
-# doas takes over. Make symbolic link to replace sudo
-ln -s /bin/doas /bin/sudo
-
 echo "Enabling services.."
 systemctl enable NetworkManager
 systemctl enable sddm.service
@@ -130,14 +122,17 @@ os-prober
 # Make GRUB config
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Download dotfiles
-[ /home/$username/.cfg ] || runuser -l $username -c 'curl https://gist.githubusercontent.com/jd-raymaker/d9e0ebb53f75a82b74ab99f044635f34/raw/5097b9c1260c4f6422b9f6ada862fa32bfe712d2/install-dotfiles | sh'
+# Install zsh
+chsh -s /bin/zsh $username
 
-# Download and install Yay
-su -P -l $username -c 'git clone https://aur.archlinux.org/yay.git $HOME/aur/yay && cd $HOME/aur/yay && makepkg -si'
+# Change into user
+su - $username
+cd ~
 
-# Autoinstall packages from AUR
-su -P -l $username -c 'yay --noconfirm -S brave-bin'
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Enable password in doas config
-echo "permit persist $username" > /etc/doas.conf
+# Install oh-my-zsh plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+

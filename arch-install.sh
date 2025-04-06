@@ -217,7 +217,7 @@ timedatectl set-ntp true
 # Install the base packages
 pacman -Syy
 echo "Installing system.."
-pacstrap /mnt base base-devel linux linux-headers linux-firmware networkmanager xorg bash-completion opendoas
+pacstrap /mnt base base-devel linux linux-headers linux-firmware networkmanager xorg bash-completion
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 # Generate fstab
