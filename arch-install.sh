@@ -150,16 +150,16 @@ check_mounts() {
     
     if mount | grep -q "/mnt "; then
         root_mounted=true
-        echo "✓ Root partition mounted to /mnt"
+        echo "[OK] Root partition mounted to /mnt"
     else
-        echo "✗ Root partition not mounted to /mnt"
+        echo "[WARN] Root partition not mounted to /mnt"
     fi
     
     if mount | grep -q "/mnt/boot/efi"; then
         efi_mounted=true
-        echo "✓ EFI partition mounted to /mnt/boot/efi"
+        echo "[OK] EFI partition mounted to /mnt/boot/efi"
     else
-        echo "✗ EFI partition not mounted to /mnt/boot/efi"
+        echo "[WARN] EFI partition not mounted to /mnt/boot/efi"
     fi
 }
 
