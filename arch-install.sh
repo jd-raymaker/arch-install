@@ -219,7 +219,8 @@ pacman -Syy
 echo "Installing system.."
 pacstrap /mnt base base-devel linux linux-headers linux-firmware networkmanager xorg bash-completion opendoas
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
-cp arch-install-part2.sh /mnt/arch-install-part2.sh
+#cp arch-install-part2.sh /mnt/arch-install-part2.sh
+curl https://jd-raymaker.github.io/arch-install/arch-install-part2.sh -o /mnt/arch-install-part2.sh;
 
 # Generate fstab
 echo "Generating fstab"
