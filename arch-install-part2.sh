@@ -80,9 +80,6 @@ pacman -S --noconfirm \
     noto-fonts-emoji \
     noto-fonts-extra \
     npm \
-    nvidia \
-    nvidia-settings \
-    nvidia-utils \
     numlockx \
     openssh \
     openal \
